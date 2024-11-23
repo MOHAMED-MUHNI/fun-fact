@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Personal Fun Facts Generator</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            padding: 20px;
+        }
+
+        .container {
+            text-align: center;
+            padding: 2.5rem;
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+            max-width: 600px;
+            width: 90%;
+            backdrop-filter: blur(10px);
+            transform: translateY(0);
+            transition: transform 0.3s ease;
+        }
+
+        .container:hover {
+            transform: translateY(-5px);
+        }
+
+        h1 {
+            color: #4a4a4a;
+            margin-bottom: 2rem;
+            font-size: 2.5rem;
+            font-weight: 700;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        .fact-box {
+            background: linear-gradient(145deg, #ffffff, #f0f0f0);
+            padding: 2.5rem;
+            border-radius: 15px;
+            margin-bottom: 2rem;
+            min-height: 120px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: inset 5px 5px 10px #d1d1d1,
+                        inset -5px -5px 10px #ffffff;
+        }
+
+        #fact-display {
+            font-size: 1.3rem;
+            color: #2d3748;
+            line-height: 1.6;
+            font-weight: 500;
+            opacity: 0;
+            animation: fadeIn 0.5s ease forwards;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(10px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        #generate-btn {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            border: none;
+            padding: 1rem 2.5rem;
+            border-radius: 50px;
+            font-size: 1.1rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-weight: 600;
+            letter-spacing: 0.5px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+        }
+
+        #generate-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
+        }
+
+        #generate-btn:active {
+            transform: translateY(1px);
+        }
+
+        @media (max-width: 480px) {
+            .container {
+                padding: 1.5rem;
+            }
+            
+            h1 {
+                font-size: 2rem;
+            }
+            
+            #fact-display {
+                font-size: 1.1rem;
+            }
+            
+            #generate-btn {
+                padding: 0.8rem 2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Fun Facts About Me!</h1>
+        <div class="fact-box">
+            <p id="fact-display">Click the button to generate a fun fact!</p>
+        </div>
+        <button id="generate-btn">Generate Another Fun Fact</button>
+    </div>
+
+    <script>
+        const facts = [
+            "I love hiking and have visited five national parks!",
+            "I can speak three languages fluently: English, Spanish, and Mandarin",
+            "I've read over 100 books in the past year",
+            "I love cooking and can make the perfect chocolate chip cookies",
+            "I once traveled through 5 countries in 2 weeks",
+            "I've written over 100,000 lines of code in my career",
+            "I rescued two dogs and they're my coding companions",
+            "I can solve a Rubik's cube in under 2 minutes",
+            "I've participated in 10 hackathons and won 3",
+            "I learned to play piano by ear",
+            "I maintain a garden with 15 different species of plants",
+            "I've been skydiving twice and can't wait to go again",
+            "I make my own kombucha at home",
+            "I've contributed to 5 open-source projects",
+            "I meditate for 20 minutes every morning"
+        ];
+
+        const factDisplay = document.getElementById('fact-display');
+        const generateBtn = document.getElementById('generate-btn');
+
+        function generateFact() {
+            const randomIndex = Math.floor(Math.random() * facts.length);
+            factDisplay.textContent = facts[randomIndex];
+        }
+
+        generateBtn.addEventListener('click', generateFact);
+        generateFact();
+    </script>
+</body>
+</html>
