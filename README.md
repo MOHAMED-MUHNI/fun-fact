@@ -1,2 +1,2 @@
 # fun-fact
-this code genrated by gen AI
+view the website(https://mohamed-muhni.github.io/fun-fact/)
